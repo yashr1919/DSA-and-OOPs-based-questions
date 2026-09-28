@@ -1,92 +1,29 @@
 Create a class Player with the below attributes:
-
 playerId – int
-
 playerName – String
-
 runs – int
-
 playerType – String
-
 matchType – String
-
 The above attributes should be private. Provide getters, setters, and a parameterized constructor as required.
 
 Create a class Solution with the main method.
-
 Implement two static methods, findPlayerWithLowestRuns and findPlayerByMatchType, in the Solution class.
 
 1. findPlayerWithLowestRuns
-
 This method will take an array of Player objects and a String value as input parameters.
-
 The method will return the least runs of the player from the array of Player objects for the given player type (String parameter passed).
-
 If no player satisfying the above condition is present in the array of Player objects, then the method should return 0.
 
 2. findPlayerByMatchType
-
 This method will take an array of Player objects and a String value as input parameters.
-
 The method will return an array of Player objects belonging to the match type passed as an input parameter, in descending order of playerId.
-
 If no player satisfying the above condition is present in the array of Player objects, then the method should return null.
 
 Note:
-
 No two players will have the same playerId and runs.
-
 All searches should be case-insensitive.
 
 Main Method
-
-The above-mentioned static methods should be called from the main method.
-
-For findPlayerWithLowestRuns:
-
-The main method should print the returned runs as it is if the returned value is greater than 0. Otherwise, it should print:
-Create a class Player with the below attributes:
-
-playerId – int
-
-playerName – String
-
-runs – int
-
-playerType – String
-
-matchType – String
-
-The above attributes should be private. Provide getters, setters, and a parameterized constructor as required.
-
-Create a class Solution with the main method.
-
-Implement two static methods, findPlayerWithLowestRuns and findPlayerByMatchType, in the Solution class.
-
-1. findPlayerWithLowestRuns
-
-This method will take an array of Player objects and a String value as input parameters.
-
-The method will return the least runs of the player from the array of Player objects for the given player type (String parameter passed).
-
-If no player satisfying the above condition is present in the array of Player objects, then the method should return 0.
-
-2. findPlayerByMatchType
-
-This method will take an array of Player objects and a String value as input parameters.
-
-The method will return an array of Player objects belonging to the match type passed as an input parameter, in descending order of playerId.
-
-If no player satisfying the above condition is present in the array of Player objects, then the method should return null.
-
-Note:
-
-No two players will have the same playerId and runs.
-
-All searches should be case-insensitive.
-
-Main Method
-
 The above-mentioned static methods should be called from the main method.
 
 For findPlayerWithLowestRuns:
