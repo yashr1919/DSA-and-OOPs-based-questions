@@ -66,3 +66,100 @@ floaters
 5666
 Running shoes
 reebok
+
+
+
+import java.util.*;
+
+public class Footwear{
+    int footwearId;
+    String footwearName;
+    String footwearType;
+    int price;
+
+    public Footwear(int footwearId, String footwearName, String footwearType, int price){
+        this.footwearId = footwearId;
+        this.footwearName = footwearName;
+        this.footwearType = footwearType;
+        this.price = price;
+    }
+    
+    public int getFootwearId(){
+        return footwearId;
+    }
+    public String getFootwearName(){
+        return footwearName;
+    }
+    public String getFootwearType(){
+        return footwearType;
+    }
+    public int getPrice(){
+        return price;
+    }
+}
+
+class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Footwear[] arr = new Footwear[5];
+
+        for(int i = 0; i < arr.length; i++){
+            int a = sc.nextInt(); sc.nextLine();
+            String b = sc.nextLine();
+            String c = sc.nextLine();
+            int d = sc.nextInt(); sc.nextLine();
+
+            arr[i] = new Footwear(a,b,c,d);
+        }
+        String footwearType = sc.nextLine();
+        String footwearName = sc.nextLine();
+
+        int result1 = getCountByType(arr, footwearType);
+            if(result1 > 0){
+                System.out.println("count by type is :" + result1);
+            } else{
+                System.out.println("no footwear with the given footwear type is found in the array.");
+            }
+        Footwear result2 = getSecondHighestPriceByBrand(arr, footwearName);
+
+    if(result2 != null){
+        System.out.println(result2.getFootwearId());
+    }
+    else{
+        System.out.println("no footwear available");
+    }
+        
+}
+    public static int getCountByType(Footwear[] arr, String footwearType){
+        int count = 0;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i].getFootwearType().equals(footwearType)){
+                count ++;
+            }
+        }
+        return count;
+    }
+    public static Footwear getSecondHighestPriceByBrand(
+        Footwear[] arr, String footwearName) {
+
+    Footwear highest = null;
+    Footwear second = null;
+
+    for(int i = 0; i < arr.length; i++) {
+
+        if(arr[i].getFootwearName().equalsIgnoreCase(footwearName)) {
+
+            if(highest == null || arr[i].getPrice() > highest.getPrice()) {
+                second = highest;
+                highest = arr[i];
+            }
+            else if(second == null || arr[i].getPrice() > second.getPrice()) {
+                second = arr[i];
+            }
+        }
+    }
+
+    return second;
+}
+}
