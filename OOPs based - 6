@@ -1,98 +1,58 @@
-Create a class Footwear which consists of the below attributes.
-footwearId=int
-footwearName=String
-footwearType=String
-price =int
+Create a class Antenna with below attributes.
+antennaid=int
+antennaName=String
+projectLead=String
+antennaVSWR=double
 
-The above attributes should be private.
-write getter and setter and parametrised constructor as required.
+the above attribute should be private ,write getter and
+setter and parametrized constructor as well.
 
-Create the class footwearProgrammm with the main method.
-implement the 2 static methods.getCountByType and
-getSecondHighestPriceByBrand in the Solution class.
-
-
-getCountByType method:
-this method will take two input parameters.
-array of the Footwear objects and string parameter footwear type.
-this method will return the count of the footwears from array of the
-footwear objects for the given type of footwear.
-if no footwear with the given footwear type is found in the
-array of footwear abjects,then the method should return 0.
+create class MyClass with main method.
+implement two static methods searchAntennaByName and sortAntennaByVSWR
+in MyClass class.
 
 
-getSecondHighestPriceByBrand method:
-this method will take 2 input parameters-array of footwear objects and string parameter inputFootwearName.the method
-will return the second highest footwear objects based on the price from the array of the Footwear objects
-whose brand name matches with the input string parameter.
-if no footwear with the given brand is present in the array of the footwear objects,the the method
-should return null.
+searchAntennaByName :
+This method will take an array of Antenna objects and the
+string value as input parameter.The method will find out Antenna name(String parameter
+passed) .it will return Antennaid if found.if there is no Antenna that matches then the
+method will return zero.
+the main method should print the antennaid,if the returned value is not 0.if the
+returned value is 0 then print,"There is no antenna with the given parameter".
 
-NOTE: no two footwear objects would have the same footwearId.All the searches should be case insensitive.
-the above mentioned static methods should be called from the main method.
 
-For getCountByType method- the main method should print the count of the footwears ,if the returned value
-is greater than zero. or it should print "Footwear not available";
+sortAntennaByVSWR:
+This method will take an array of Antenna Objects and a double value as input.
+this method will return an array of Antenna objects sorted in ascending orderof their
+antennaVSWR. which is less than VSWR(double value passed)       
 
-For getSecondHighestPriceByBrand method-The main method should print price from the returned footwear objects
-if the returned footwear object is not null.else it should print "Brand not available".
-for example.
-112
-ABC
-25555
-where 112 is the footwear id,ABC is brand name,25555 is price.
+  the main method should print name of the project leads from the returned array
+if the returned value is not null.if the returned value is null then main method should
+print "No Antenna found";
 
-consider the sample input and output.
-100
-Sketchers
-sneekers
-12345
-103
-Puma
-running shoes
-10099
-102
-reebok
-Running shoes
-5667
-101
-Reebok
-running shoes
-5656
-99
-reebok
-floaters
-5666
-Running shoes
-reebok
 
-Sample output:
-3
-99
-reebok
-5666
+input1:
 
-Sample input2:
+111
+Reconfigurable
+Hema
+0.4
+222
+Wearable
+Kavya
+0.9
+333
+Microstrip
+Teju
+0.3
+444
+Dielectric
+Sai
+0.65
+Microstrip
+0.5
 
-100
-Puma
-sneekers
-12345
-101
-Puma
-sneekers
-10099
-102
-Puma
-sneekers
-5000
-102
-Reebok
-sneekers
-8000
-104
-Puma
-floaters
-2000
-running shoes
-bata
+output:
+333
+Teju
+Hema
