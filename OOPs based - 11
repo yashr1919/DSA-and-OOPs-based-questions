@@ -85,3 +85,73 @@ No Associate found with mentioned scores
 112
 
 Note on using Scanner object: Sometimes scanner does not read the new line character while invoking
+ -----------------------
+
+
+import java.util.*;
+
+public class Associate{
+    int id;
+    String name;
+    double scores;
+    int experience;
+
+    public Associate(int id, String name, double scores, int experience){
+        this.id = id;
+        this.name = name;
+        this.scores = scores;
+        this.experience = experience;
+    }
+
+    public int getId(){
+        return id;
+    }
+    public String getName(){
+        return name;
+    }
+    public double getScores(){
+        return scores;
+    }
+    public int getExperience(){
+        return experience;
+    }
+}
+class Solution{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        Associate[] arr = new Associate[4];
+        for(int i = 0; i < arr.length;i++){
+            int a = sc.nextInt(); sc.nextLine();
+            String b = sc.nextLine();
+            double c = sc.nextDouble(); sc.nextLine();
+            int d = sc.nextInt(); sc.nextLine();
+
+            arr[i] = new Associate(a,b,c,d);
+        }
+        double scores = sc.nextDouble();
+        
+        Associate res1 = searchAssociateByScores(arr, scores);
+        System.out.println(res1);
+        Associate res2 = findAssociateWithMaxExperience(arr);
+        System.out.println(res2);
+    }
+    
+    public static Associate searchAssociateByScores(Associate[] arr, double scores){
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i].getScores() == scores){
+                return arr[i];
+            }
+        }
+        return null;
+    }
+    public static Associate findAssociateWithMaxExperience(Associate[] arr){
+        Associate max = arr[0];
+        for(int i = 1; i < arr.length; i++){
+
+            if(arr[i].getExperience() > max.getExperience()){
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+}
