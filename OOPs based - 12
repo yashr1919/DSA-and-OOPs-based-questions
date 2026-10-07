@@ -84,3 +84,77 @@ NO HOTEL WITH GIVEN FACILITY
 
 **************************************************************************************************************                                             S-O-L-U-T-I-O-N                                                     
 ***************************************************************************************************************
+
+import java.util.*;
+
+public class Hotel{
+    int hotelId;
+    String hotelName;
+    String hotelCabFacility;
+    int hotelRating;
+    int hotelFees;
+
+    public Hotel(int hotelId, String hotelName, String hotelCabFacility, int hotelRating, int hotelFees){
+        this.hotelId = hotelId;
+        this.hotelName = hotelName;
+        this.hotelCabFacility = hotelCabFacility;
+        this.hotelRating = hotelRating;
+        this.hotelFees = hotelFees;
+    }
+
+    public int getHotelId(){
+        return hotelId;
+    }
+    public String getHotelCabFacility(){
+        return hotelCabFacility;
+    }
+    public String getHotelName(){
+        return hotelName;
+    }
+    public int getHotelRating(){
+        return hotelRating;
+    }
+    public int getHotelFees(){
+        return hotelFees;
+    }
+}
+
+class Solution{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        Hotel[] arr = new Hotel[4];
+        for(int i = 0; i<arr.length; i++){
+            int a = sc.nextInt(); sc.nextLine();
+            String b = sc.nextLine();
+            String c = sc.nextLine();
+            int d = sc.nextInt(); sc.nextLine();
+            int e = sc.nextInt(); sc.nextLine();
+
+            arr[i] = new Hotel(a,b,c,d,e);
+        }
+        String hotelCabFacility = sc.nextLine();
+        int result = hotelByHighestRating(arr, hotelCabFacility);
+
+        if(result == 0){
+            System.out.println("NO HOTEL WITH GIVEN FACILITY");
+        }
+        else{
+            System.out.println(result);
+        }
+    }
+    public static int hotelByHighestRating(Hotel[] arr, String hotelCabFacility){
+        int highestRating = 0;
+
+    for(int i = 0; i < arr.length; i++){
+
+        if(arr[i].getHotelCabFacility().equalsIgnoreCase(hotelCabFacility)
+           && arr[i].getHotelRating() > 5){
+
+            if(arr[i].getHotelRating() > highestRating){
+                highestRating = arr[i].getHotelRating();
+            }
+        }
+    }
+    return highestRating;
+    }
+}
