@@ -1,0 +1,38 @@
+## Problem Statement
+
+Write a Java program to count both vowels and consonants in a given string
+
+### Conditions
+
+Only alphabets should be considered for counting
+
+## Input
+
+    Hello World!
+
+## Output
+
+    Vowels count - 3
+    Consonants count - 7
+
+## Explanation
+
+> The vowels in the given string are `e`,`o` and `o` and so the vowels count is 3.
+> Likewise, the consonants in the given string are `h`,`l`,`l`,`w`,`r`,`l` and `d` and so the count is 7.
+
+  -------------------------------------------------------------
+
+  class Main {
+    public static void main(String[] args) {
+        String s = "Hello world";
+        int count = 0;
+        int vowel = 0;
+        for(char ch : s.toCharArray()){
+            count++;
+            if(ch == 'a' || ch == 'e' || ch == 'i' || ch  == 'o' || ch == 'u'){
+                vowel++;
+            }
+        }
+        System.out.println("no of vowels:" + vowel + " and " + "no. of consonants: " + (count-vowel));
+    }
+}
