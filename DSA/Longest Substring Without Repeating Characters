@@ -1,0 +1,58 @@
+Given a string s, find the length of the longest substring without duplicate characters.
+
+ 
+
+Example 1:
+
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3. Note that "bca" and "cab" are also correct answers.
+Example 2:
+
+Input: s = "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+Example 3:
+
+Input: s = "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3.
+Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+For [0, -3], the 1st smallest negative integer is -3.
+
+-----------------------------------------------------------------------
+
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+
+        int maxc = 0;
+
+        for(int i = 0; i < s.length(); i++) {
+
+            int count = 1;
+
+            for(int j = i + 1; j < s.length(); j++) {
+
+                boolean duplicate = false;
+
+                for(int k = i; k < j; k++) {
+
+                    if(s.charAt(j) == s.charAt(k)) {
+                        duplicate = true;
+                        break;
+                    }
+                }
+
+                if(duplicate) {
+                    break;
+                }
+
+                count++;
+            }
+
+            maxc = Math.max(count, maxc);
+        }
+
+        return maxc;
+    }
+}
