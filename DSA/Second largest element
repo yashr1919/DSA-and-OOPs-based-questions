@@ -1,0 +1,54 @@
+Given an array of integers nums, return the second-largest element in the array. If the second-largest element does not exist, return -1.
+
+Example 1:
+Input: nums = [8, 8, 7, 6, 5]
+Output: 7
+Explanation:
+The largest value in nums is 8, the second largest is 7
+
+Example 2:
+Input: nums = [10, 10, 10, 10, 10]
+Output: -1
+Explanation:
+The only value in nums is 10, so there is no second largest value, thus -1 is returned
+
+-----------------------------------------------------------------------------------------------
+
+public class Solution {
+    public static int[] getSecondOrderElements(int n, int[] a) {
+      
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+        int smallest = Integer.MAX_VALUE;
+        int secondSmallest = Integer.MAX_VALUE;
+
+        for (int i = 0; i < n; i++) {
+          
+            if (a[i] > largest) {
+                secondLargest = largest;
+                largest = a[i];
+            } else if (a[i] > secondLargest && a[i] != largest) {
+                secondLargest = a[i];
+            }
+
+            if (a[i] < smallest) {
+                secondSmallest = smallest;
+                smallest = a[i];
+            } else if (a[i] < secondSmallest && a[i] != smallest) {
+                secondSmallest = a[i];
+            }
+        }
+
+        return new int[]{secondLargest, secondSmallest};
+    }
+
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3, 4, 5}; // Example array
+        int n = a.length;
+
+        int[] result = getSecondOrderElements(n, a);
+
+        System.out.println("The second largest element is: " + result[0]);
+        System.out.println("The second smallest element is: " + result[1]);
+    }
+}
