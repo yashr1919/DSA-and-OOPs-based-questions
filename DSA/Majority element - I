@@ -1,0 +1,96 @@
+Given an integer array nums of size n, return the majority element of the array.
+The majority element of an array is an element that appears more than n/2 times in the array. The array is guaranteed to have a majority element.
+
+Example 1:
+Input: nums = [7, 0, 0, 1, 7, 7, 2, 7, 7]
+Output: 7
+
+Explanation:
+The number 7 appears 5 times in the 9 sized array
+
+Example 2:
+Input: nums = [1, 1, 1, 2, 1, 2]
+Output: 1
+
+Explanation:
+The number 1 appears 4 times in the 6 sized array
+
+-------------------------------------------------------
+
+class Main {
+
+    static void maxFrequency(int[] arr, int n){
+
+        int maxCount = 0;
+
+        int maxElement = arr[0];
+
+        for(int i = 0; i < n; i++){
+
+            int count = 0;
+
+            for(int j = 0; j < n; j++){
+
+                if(arr[i] == arr[j]){
+
+                    count++;
+
+                }
+            }
+
+            if(count > maxCount){
+
+                maxCount = count;
+
+                maxElement = arr[i];
+            }
+        }
+
+        System.out.println("Element repeated maximum times : " + maxElement);
+
+        System.out.println("Frequency : " + maxCount);
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {7, 0, 0, 1, 7, 7, 2, 7, 7};
+
+        int n = arr.length;
+
+        maxFrequency(arr, n);
+    }
+}
+
+
+........
+
+
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    
+    static int sumoftwo(int[] arr, int n){
+        int maxCount = 0;
+        int maxElement = arr[0];
+        for(int i = 0; i < n; i++){
+            int count = 0;
+            for(int j = 0; j < n; j++){
+                if(arr[i] == arr[j]){
+                    count++;
+                }
+            }
+            if(count > maxCount) {
+                maxCount = count;
+                maxElement = arr[i];
+            }
+        }
+        return maxElement;
+    }
+    public static void main(String[] args) {
+        int[] arr = {7, 0, 0, 1, 7, 7, 2, 7, 7};
+        int n = arr.length;
+        int arr2 = sumoftwo(arr, n);
+        System.out.println("repeated max is :" + arr2);
+    }
+}
