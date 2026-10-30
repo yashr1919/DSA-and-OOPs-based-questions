@@ -1,0 +1,43 @@
+Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.
+
+Example 1:
+Input: nums = [1, 1, 1], k = 2
+Output: 2
+
+Explanation: In the given array [1, 1, 1], there are two subarrays that sum up to 2: [1, 1] and [1, 1]. Hence, the output is 2.
+
+Example 2:
+Input: nums = [1, 2, 3], k = 3
+Output: 2
+
+Explanation: In the given array [1, 2, 3], there are two subarrays that sum up to 3: [1, 2] and [3]. Hence, the output is 2.
+
+-----------------------------------------
+
+import java.util.*;
+class Main {
+    
+    static int sumarr(int[] arr, int n, int k){
+        int count = 0;
+        for(int i = 0; i < n; i++){
+            int sum = 0;
+            for(int j = i; j < n; j++){
+                sum += arr[j];
+                if(sum == k){
+                    count++;
+                }
+            }
+        }
+        
+        return count;
+    }
+    public static void main(String[] args) {
+        int[] arr = {3, 1, 2, 4};
+        int n = arr.length;
+        int k = 6;
+        //List<Integer> ans = arrange(arr,n);
+        int arr2 = sumarr(arr, n, k);
+        System.out.println(arr2);
+        
+    }
+}
