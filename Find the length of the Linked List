@@ -1,0 +1,60 @@
+ou are given the head of a singly linked list. Your task is to return the number of nodes in the linked list.
+
+Example 1:
+Input: head = [1, 2, 3, 4, 5]
+Output: 5
+
+Example 2:
+Input: head = [8, 6]
+Output: 2
+
+------------------------------------------
+
+A Node has:
+a data part (stores value)
+a next part (stores address/reference of the next node)
+
+class Node {
+    int data;
+    Node next;
+    }
+we declare a class Node because we use Node word while calling for next nodes and every node contains a data which is a integer and the address of next node
+
+  Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+When we create a new node like:
+Node head = new Node(10);
+We must tell the program:
+What value to store → this.data = data;
+The next node is not connected yet → this.next = null;
+this refers to the current object.
+this.data → the variable inside the Node class
+data → the value passed while creating the object
+
+
+
+class ListNode{
+    int data;
+    ListNode next;
+
+    ListNode(int data){
+        this.data = data;
+        this.next = null;
+    }
+}
+class Solution {
+    public int getLength(ListNode head) {
+//“This function will start working from the head node, and from there it can move through the whole linked list.”
+//Every linked list starts from the head node, and that is what we need to access the full list.
+        // Your code goes here
+        int count = 0;
+        ListNode current = head;
+        while(current != null){
+            count++;
+            current = current.next;
+        }
+        return count;
+    }
+}
