@@ -1,0 +1,68 @@
+Implement a First-In-First-Out (FIFO) queue using two stacks. The implemented queue should support the following operations: push, pop, peek, and isEmpty.
+Implement the StackQueue class:
+void push(int x): Adds element x to the end of the queue.
+int pop(): Removes and returns the front element of the queue.
+int peek(): Returns the front element of the queue without removing it.
+boolean isEmpty(): Returns true if the queue is empty, false otherwise.
+
+Example 1:
+Input:
+["StackQueue", "push", "push", "pop", "peek", "isEmpty"]
+[[], [4], [8], [], [], []]
+Output:[null, null, null, 4, 8, false]
+
+Explanation:
+StackQueue queue = new StackQueue();
+queue.push(4);
+queue.push(8);
+queue.pop(); // returns 4
+queue.peek(); // returns 8
+queue.isEmpty(); // returns false
+
+Example 2:
+Input:
+["StackQueue", "isEmpty"]
+[[]]
+Output: [null, true]
+
+Explanation:
+StackQueue queue = new StackQueue();
+
+---------------------------------------------------------
+
+import java.util.Stack;
+
+class MyQueue {
+    public Stack<Integer> s1 = new Stack<>();
+    public Stack<Integer> s2 = new Stack<>();
+
+    public void push(int x) {
+        // Always push to s1
+        s1.push(x);
+    }
+
+    public int pop() {
+        // If s2 is empty, transfer all from s1 to s2
+        if (s2.isEmpty()) {
+            while (!s1.isEmpty()) {
+                s2.push(s1.pop());
+            }
+        }
+        return s2.pop();
+    }
+
+    public int peek() {
+        // If s2 is empty, transfer all from s1 to s2
+        if (s2.isEmpty()) {
+            while (!s1.isEmpty()) {
+                s2.push(s1.pop());
+            }
+        }
+        return s2.peek();
+    }
+
+    public boolean empty() {
+        return s1.isEmpty() && s2.isEmpty();
+    }
+}
+queue.isEmpty(); // returns true
